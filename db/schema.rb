@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_27_031618) do
+ActiveRecord::Schema.define(version: 2018_06_27_232157) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,4 +18,13 @@ ActiveRecord::Schema.define(version: 2018_06_27_031618) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "guesses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "guessed_letter"
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_guesses_on_game_id"
+  end
+
+  add_foreign_key "guesses", "games"
 end
