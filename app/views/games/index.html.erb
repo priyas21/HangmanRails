@@ -1,0 +1,16 @@
+<h1>Listing all the games</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Created at</th>
+    <th colspan = "3"></th>
+  </tr>
+
+  <tr>
+    <% @games.each do |game| %>
+      <td><%= game.name %></td>
+      <td><%= game.created_at %></td>
+  </tr>
+  <% end %>
+</table>
