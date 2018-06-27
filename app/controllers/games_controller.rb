@@ -1,9 +1,21 @@
 class GamesController < ApplicationController
+  
+  def index
+  end
+
   def new 
     
   end
+  
   def create
-    render plain: params[:game].inspect
+    @game = Game.new(game_params)
+    @game.save
+    redirect_to @game
+  end
+
+  private
+  def game_params
+    params.require(:game).permit(:name)
   end
 
 end
