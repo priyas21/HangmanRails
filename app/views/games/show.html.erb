@@ -1,2 +1,21 @@
 <h2>Welcome <%= @game.name %></h2>
+
+<h2>The letters you guessed are</h2>
+<% @game.guesses.each do |guess| %>
+  <p>
+    <strong>Guess is</strong>
+    <%= guess.guessed_letter %>
+  </p>
+<% end %>
+
+<%= form_with(model: [ @game, @game.guesses.build ] , local: true ) do |form| %>
+  <p>
+    <%= form.label :guess, "Guess a Letter" %>
+    <%= form.text_field :guess %>
+  </p>
+  <p>
+    <%= form.submit "Submit" %>
+  </p>
+<% end %>
+
 <%= link_to 'Back', games_path %>
