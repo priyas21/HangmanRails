@@ -1,3 +1,4 @@
 class Guess < ApplicationRecord
-  belong_to :game
+  belongs_to :game
+  # validates :guessed_letter, presence: true
 end
