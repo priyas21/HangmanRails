@@ -11,6 +11,9 @@
     <% @games.each do |game| %>
       <td><%= game.name %></td>
       <td><%= game.created_at %></td>
+      <td><%= link_to 'Destroy', game_path(game),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
   </tr>
   <% end %>
 </table>
