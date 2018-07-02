@@ -1,0 +1,21 @@
+<%= form_with(model: [ @game, @game.guesses.build ] , local: true ) do |form| %>
+<% if @game.errors.any? %>
+    <div id ="error_explanation">
+      <h2><%= pluralize(@game.errors.count, 'error') %>
+      prohibited game from being started 
+      </h2>
+      <ul>
+        <% @game.errors.full_messages.each do |msg|  %>
+          <li><%= msg %></li>
+          <% end %> 
+      </ul>
+    </div>
+    <% end %>
+  <p>
+    <%= form.label :guess, "Guess a Letter" %>
+    <%= form.text_field :guessed_letter %>
+  </p>
+  <p>
+    <%= form.submit "Submit" %>
+  </p>
+<% end %>
