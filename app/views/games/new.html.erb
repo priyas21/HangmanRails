@@ -1,24 +1,4 @@
-<h1>New Game</h1>
-<%= form_with scope: :game, url: games_path, local: true do |form| %>
-  <% if @game.errors.any? %>
-    <div id ="error_explanation">
-      <h2><%= pluralize(@game.errors.count, 'error') %>
-      prohibited game from being started 
-      </h2>
-      <ul>
-        <% @game.errors.full_messages.each do |msg|  %>
-          <li><%= msg %></li>
-          <% end %> 
-      </ul>
-    </div>
-    <% end %>
-    
-<p>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-</p>
-<p>
-  <%= form.submit  "Start Game" %>
-</p>
-<% end %>
+<center><h1>New Custom Game</h1><br>
+<%= render 'form' %>
 <%= link_to 'Back', games_path %>
+</center>

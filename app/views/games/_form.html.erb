@@ -1,0 +1,26 @@
+<%= form_with model: @game, local: true do |form| %>
+  <% if @game.errors.any? %>
+    <div id ="error_explanation">
+      <h2><%= pluralize(@game.errors.count, 'error') %>
+      prohibited game from being started 
+      </h2>
+      <ul>
+        <% @game.errors.full_messages.each do |msg|  %>
+          <li><%= msg %></li>
+          <% end %> 
+      </ul>
+    </div>
+    <% end %>
+ <div class="container">  
+  <form>
+    <div class= "form-group">
+      <%= form.label :name, "Player" %>
+      <%= form.text_field :name %>
+    </div> 
+    <div class="form-group">
+        <%= form.submit  "Create Game"%>
+    </div>
+  </form> 
+ </div> 
+
+<% end %>
