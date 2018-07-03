@@ -1,5 +1,4 @@
 <%= form_with(model: [ @game, @game.guesses.build ] , local: true ) do |form| %>
-
   <p>
     <%= form.label :guess, "Guess a Letter" %>
     <%= form.text_field :guessed_letter %>
@@ -7,4 +6,12 @@
   <p>
     <%= form.submit "Submit" %>
   </p>
+
+<% if flash[:notice] %>
+  <div class ="alert-danger"> <%= flash[:notice] %> </div>
+<% else %>
+  <div class ="alert-success"><%= flash[:success] %> </div>
+<% end %>
+
+
 <% end %>
