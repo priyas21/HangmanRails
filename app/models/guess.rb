@@ -1,5 +1,8 @@
 class Guess < ApplicationRecord
   belongs_to :game
-  validates :guessed_letter, presence: true
-  validates_format_of :guessed_letter, :with => /\A[A-Za-z]\z/
+  validates :guessed_letter, presence: true,
+            format: { with: /\A[a-zA-Z]+\z/ },
+            uniqueness: { scope: :game_id }
+    
+  
 end
