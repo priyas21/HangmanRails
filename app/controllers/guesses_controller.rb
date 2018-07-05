@@ -6,7 +6,7 @@ class GuessesController < ApplicationController
     if @guess.save
       flash[:success] = "The guess is valid"
     else
-      flash[:notice] = "The guess you made is invalid. Enter only one character"
+      flash[:notice] = @guess.errors.full_messages.to_s
     end
     redirect_to game_path(@game)
   end
