@@ -14,6 +14,8 @@ class GamesController < ApplicationController
   
   def create
     @game = Game.new(game_params)
+    @game.word_to_be_guessed = GenerateRandomWord.new.words
+    @game.initial_number_of_lives = 8
     if @game.save
       redirect_to @game
     else
@@ -29,7 +31,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:name, :number_of_lives)
+    params.require(:game).permit(:name, :number_of_lives, :word_to_be_guessed)
   end
 
 end
