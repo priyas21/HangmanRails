@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_104011) do
+ActiveRecord::Schema.define(version: 2018_07_06_010917) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "initial_number_of_lives"
-    t.string "word_to_be_guessed"
+    t.string "word"
   end
 
   create_table "guesses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
