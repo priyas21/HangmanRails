@@ -7,6 +7,10 @@
     <%= form.submit "Submit", disabled: !@game.game_in_progress? %>
   </p>
 
+  <div><%= show_clue(@game.clue) %></div>
+
+  <div> <%= game_progress(@game) %></div>
+
   <% if flash[:success] %>
     <% if @game.guess_correct? %>
       <div class= "alert-success"><h3>Guess is correct</h3></div>
