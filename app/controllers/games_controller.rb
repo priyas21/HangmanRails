@@ -1,11 +1,12 @@
 class GamesController < ApplicationController
+
+  before_action :set_game, only: [:show, :destroy]
   
   def index
     @games = Game.all
   end
 
   def show
-    @game = Game.find(params[:id])
   end
 
   def new 
@@ -22,16 +23,17 @@ class GamesController < ApplicationController
       render 'new'
     end
   end
+
   def destroy
-    @game = Game.find(params[:id])
     @game.destroy
 
     redirect_to games_path
   end
 
   private
-  def game_params
-    params.require(:game).permit(:name, :number_of_lives, :word_to_be_guessed)
+
+  def set_game
+    @game = Game.find(params[:id])
   end
 
 end
