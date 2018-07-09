@@ -12,11 +12,7 @@
   <div> <%= game_progress(@game) %></div>
 
   <% if flash[:success] %>
-    <% if @game.guess_correct? %>
-      <div class= "alert-success"><h3>Guess is correct</h3></div>
-    <% else %>
-      <div class= "alert-danger"><h3>Guess is incorrect</h3></div>  
-    <% end %>  
+    <div class ="alert-success"> <%= flash[:success] %> </div>
   <% else %>
     <div class ="alert-danger"> <%= flash[:notice] %> </div>
   <% end %>
