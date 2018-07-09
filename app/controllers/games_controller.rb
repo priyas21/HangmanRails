@@ -34,4 +34,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+  def game_params
+    params.require(:game).permit(:name)
+  end
 end
