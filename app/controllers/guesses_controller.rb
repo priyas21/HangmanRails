@@ -13,6 +13,6 @@ class GuessesController < ApplicationController
 
   private
   def guess_params
-    params.require(:guess).permit(:guessed_letter)
+    params.require(:guess).permit(:letter)
   end
 end
