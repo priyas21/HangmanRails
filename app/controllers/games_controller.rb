@@ -14,9 +14,7 @@ class GamesController < ApplicationController
   end
   
   def create
-    @game = Game.new(game_params)
-    @game.word_to_be_guessed = GenerateRandomWord.new.words
-    @game.initial_number_of_lives = 8
+    @game = BuildGame.new(game_params).call
     if @game.save
       redirect_to @game
     else
