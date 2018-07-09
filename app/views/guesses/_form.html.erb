@@ -1,10 +1,10 @@
 <%= form_with(model: [ @game, @game.guesses.build ] , local: true ) do |form| %>
   <p>
-    <%= form.label :guess, "Guess a Letter" %>
-    <%= form.text_field :guessed_letter %>
+    <%= form.label :letter, "Letter" %>
+    <%= form.text_field :letter , disabled: !@game.game_in_progress? %>
   </p>
   <p>
-    <%= form.submit "Submit" %>
+    <%= form.submit "Submit", disabled: !@game.game_in_progress? %>
   </p>
 
   <% if flash[:success] %>
