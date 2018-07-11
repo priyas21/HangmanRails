@@ -14,7 +14,7 @@ class Game < ApplicationRecord
     initial_number_of_lives - incorrect_guesses.length
   end
 
-  def game_in_progress?
+  def in_progress?
     !won? && !lost?
   end
 
