@@ -25,9 +25,9 @@ class Game < ApplicationRecord
   def lost?
     !word_guessed? && remaining_lives < 1
   end
-  
+
   private
-  
+
   def word_guessed?
     unguessed_characters.empty?
   end
