@@ -13,4 +13,42 @@ RSpec.describe Game, :type => :model do
   describe "Validations" do
     it { should validate_presence_of(:name) }
   end
+
+  context "at start of game" do
+    describe "#guessed_letters?" do
+      it "will have no guesses" do
+        expect(game.guessed_letters).to eq []
+      end
+    end
+
+    describe "#clue" do
+      it "will build the initial clue" do
+        expect(game.clue).to eq [nil] * game.word.length
+      end
+    end
+
+    describe "#remaining_lives" do
+      it "will show the initial number of lives" do
+        expect(game.remaining_lives).to eq game.initial_number_of_lives
+      end
+    end
+
+    describe "#in_progress?" do
+      it "returns true" do
+        expect(game).to be_in_progress
+      end
+    end
+
+    describe "#won?" do
+      it "returns false" do
+        expect(game).not_to be_won
+      end
+    end
+
+    describe "#lost?" do
+      it "returns false" do
+        expect(game).not_to be_lost
+      end
+    end
+  end
 end
