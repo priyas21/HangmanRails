@@ -7,7 +7,7 @@ module GamesHelper
   end
 
   def game_progress(game)
-    if game.game_in_progress?
+    if game.in_progress?
       "You have #{game.remaining_lives.to_s} lives remaining"
     elsif game.won?
       "You have won the game"
