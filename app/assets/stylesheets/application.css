@@ -15,7 +15,10 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- 
+
   li {
    display: inline;
+ }
+ .display-none {
+   display:none
  }

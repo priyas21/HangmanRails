@@ -1,10 +1,10 @@
 <%= form_with(model: [ @game, @game.guesses.build ] , local: true ) do |form| %>
   <p>
-    <%= form.label :letter, "Letter" %>
-    <%= form.text_field :letter , disabled: !@game.game_in_progress? %>
+<%= form.label :letter, "Letter", class: "#{'display-none' if !@game.in_progress? }"  %>
+    <%= form.text_field :letter , class: "#{'display-none' if !@game.in_progress? }" %>
   </p>
   <p>
-    <%= form.submit "Submit", disabled: !@game.game_in_progress? %>
+<%= form.submit "Submit", class: "#{'display-none' if !@game.in_progress? }" %>
   </p>
 
   <div><%= show_clue(@game.clue) %></div>
