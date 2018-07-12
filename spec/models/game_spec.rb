@@ -59,5 +59,21 @@ RSpec.describe Game, :type => :model do
         expect(game.guessed_letters).to eq ([guess[0].letter, guess[1].letter])
       end
     end
+
+    describe "#clue" do
+      context "when the correct guess is made" do
+        it "will add the guesses to the clue" do
+          guess = game.guesses.create!( [{:letter => "i"}, {:letter => "l"}] )
+          expect(game.clue).to eq [nil, nil, 'i', 'l', nil]
+        end
+      end
+
+      context "when the incorrect guess is made" do
+        it "will not make any changes to the clue" do
+           guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"}] )
+          expect(game.guessed_letters).to eq ([guess[0].letter, guess[1].letter])
+        end
+      end
+    end
   end
 end
