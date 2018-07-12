@@ -15,7 +15,7 @@ RSpec.describe Game, :type => :model do
   end
 
   context "at start of game" do
-    describe "#guessed_letters?" do
+    describe "#guessed_letters" do
       it "will have no guesses" do
         expect(game.guessed_letters).to eq []
       end
