@@ -79,14 +79,14 @@ RSpec.describe Game, :type => :model do
     describe "#remaining_lives" do
       context "when the correct guess is made" do
         it "will not change the remaining_lives" do
-          guess = game.guesses.create!( [{:letter => "r"}, {:letter => "l"}] )
+        game.guesses.create!( [{:letter => "r"}, {:letter => "l"}] )
           expect(game.remaining_lives).to eq 8
         end
       end
 
        context "when the incorrect guess is made" do
         it "will not decrement the remaining_lives by 1" do
-          guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"}] )
+        game.guesses.create!( [{:letter => "q"}, {:letter => "m"}] )
           expect(game.remaining_lives).to eq 6
         end
       end
@@ -95,7 +95,7 @@ RSpec.describe Game, :type => :model do
     describe "#in_progress" do
       context "when the game is neither won nor lost" do
         it "returns true" do
-          guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
+          game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
             {:letter => "e"},{:letter => "r"}, {:letter => "y"} ] )
           expect(game).to be_in_progress
         end
@@ -103,7 +103,7 @@ RSpec.describe Game, :type => :model do
 
       context "when the game is won but not lost" do
         it  "returns false" do
-           guess = game.guesses.create!( [{:letter => "a"}, {:letter => "m"},
+          game.guesses.create!( [{:letter => "a"}, {:letter => "m"},
             {:letter => "e"},{:letter => "r"}, {:letter => "y"}, {:letter => "l"},
             {:letter => "i"}, {:letter => "s"}] )
             expect(game).not_to be_in_progress
@@ -112,7 +112,7 @@ RSpec.describe Game, :type => :model do
 
        context "when the game is lost but not won" do
         it  "returns false" do
-           guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
+          game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
             {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"},
             {:letter => "n"}, {:letter => "t"}] )
             expect(game).not_to be_in_progress
