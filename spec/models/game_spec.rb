@@ -75,5 +75,21 @@ RSpec.describe Game, :type => :model do
         end
       end
     end
+
+    describe "#remaining_lives" do
+      context "when the correct guess is made" do
+        it "will not change the remaining_lives" do
+          guess = game.guesses.create!( [{:letter => "r"}, {:letter => "l"}] )
+          expect(game.remaining_lives).to eq 8
+        end
+      end
+
+       context "when the incorrect guess is made" do
+        it "will not decrement the remaining_lives by 1" do
+          guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"}] )
+          expect(game.remaining_lives).to eq 6
+        end
+      end
+    end
   end
 end
