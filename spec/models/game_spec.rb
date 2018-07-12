@@ -91,5 +91,33 @@ RSpec.describe Game, :type => :model do
         end
       end
     end
+
+    describe "#in_progress" do
+      context "when the game is neither won nor lost" do
+        it "returns true" do
+          guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
+            {:letter => "e"},{:letter => "r"}, {:letter => "y"} ] )
+          expect(game).to be_in_progress
+        end
+      end
+
+      context "when the game is won but not lost" do
+        it  "returns false" do
+           guess = game.guesses.create!( [{:letter => "a"}, {:letter => "m"},
+            {:letter => "e"},{:letter => "r"}, {:letter => "y"}, {:letter => "l"},
+            {:letter => "i"}, {:letter => "s"}] )
+            expect(game).not_to be_in_progress
+        end
+      end
+
+       context "when the game is lost but not won" do
+        it  "returns false" do
+           guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
+            {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"},
+            {:letter => "n"}, {:letter => "t"}] )
+            expect(game).not_to be_in_progress
+        end
+      end
+    end
   end
 end
