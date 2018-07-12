@@ -51,4 +51,13 @@ RSpec.describe Game, :type => :model do
       end
     end
   end
+
+  context "during the game" do
+    describe "#guessed_letters" do
+      it "will have the valid guess" do
+        guess = game.guesses.create!( [{:letter => "i"}, {:letter => "l"}] )
+        expect(game.guessed_letters).to eq ([guess[0].letter, guess[1].letter])
+      end
+    end
+  end
 end
