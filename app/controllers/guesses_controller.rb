@@ -1,7 +1,7 @@
 class GuessesController < ApplicationController
   def create
     @game = Game.find(params[:game_id])
-    @guess = @game.guesses.create(guess_params)
+    @guess = @game.guesses.create(:letter => guess_params[:letter].downcase)
 
     if @guess.errors.any?
       flash[:notice] = @guess.errors.full_messages
