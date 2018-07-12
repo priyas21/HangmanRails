@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
   before_action :set_game, only: [:show, :destroy]
-  
+
   def index
     @games = Game.all
   end
@@ -9,10 +9,10 @@ class GamesController < ApplicationController
   def show
   end
 
-  def new 
+  def new
     @game = Game.new
   end
-  
+
   def create
     @game = BuildGame.new(game_params).call
     if @game.save
