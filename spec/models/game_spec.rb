@@ -71,7 +71,7 @@ RSpec.describe Game, :type => :model do
 
       context "when the incorrect guess is made" do
         it "will not make any changes to the clue" do
-           guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"}] )
+          guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"}] )
           expect(game.clue).to eq [nil, nil, nil, nil, nil]
         end
       end
@@ -80,14 +80,14 @@ RSpec.describe Game, :type => :model do
     describe "#remaining_lives" do
       context "when the correct guess is made" do
         it "will not change the remaining_lives" do
-        game.guesses.create!( [{:letter => "r"}, {:letter => "l"}] )
+          game.guesses.create!( [{:letter => "r"}, {:letter => "l"}] )
           expect(game.remaining_lives).to eq lives
         end
       end
 
        context "when the incorrect guess is made" do
         it "will decrement the remaining_lives by 1" do
-        game.guesses.create!( [{:letter => "q"}] )
+          game.guesses.create!( [{:letter => "q"}] )
           expect(game.remaining_lives).to eq lives - 1
         end
       end
@@ -107,7 +107,7 @@ RSpec.describe Game, :type => :model do
           game.guesses.create!( [{:letter => "a"}, {:letter => "m"},
             {:letter => "e"},{:letter => "r"}, {:letter => "y"}, {:letter => "l"},
             {:letter => "i"}, {:letter => "s"}] )
-            expect(game).not_to be_in_progress
+          expect(game).not_to be_in_progress
         end
       end
 
@@ -116,7 +116,7 @@ RSpec.describe Game, :type => :model do
           game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
             {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"},
             {:letter => "n"}, {:letter => "t"}] )
-            expect(game).not_to be_in_progress
+          expect(game).not_to be_in_progress
         end
       end
     end
