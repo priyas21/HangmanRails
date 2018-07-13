@@ -21,4 +21,21 @@ RSpec.describe GamesController, :type => :controller do
       expect(response).to render_template("index")
     end
   end
+  describe "#create" do
+    subject { post :create, :params => {:game => {:name => "Jiya" } } }
+
+    it "creates @game" do
+      expect{subject}.to change{Game.count}.by(1)
+    end
+
+    it "redirects_to show template if the game is successfully saved" do
+      expect(subject).to redirect_to :action => :show, :id => assigns(:game).id
+    end
+
+    it "renders the new template if the game is not successfully saved" do
+      post :create, :params => { :game => {:name => ""}}
+      expect(response).to render_template("new")
+    end
+  end
+
 end
