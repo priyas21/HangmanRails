@@ -21,6 +21,22 @@ RSpec.describe GamesController, :type => :controller do
       expect(response).to render_template("index")
     end
   end
+
+  describe "#new" do
+    context "when initialized" do
+      it "is a new game" do
+         game = Game.new
+         get :new
+        expect(assigns(:game)).to be_a_new(Game)
+      end
+    end
+
+    it "renders the new template" do
+      get :new
+      expect(response).to render_template("new")
+    end
+  end
+
   describe "#create" do
     subject { post :create, :params => {:game => {:name => "Jiya" } } }
 
