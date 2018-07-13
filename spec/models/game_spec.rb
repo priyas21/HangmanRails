@@ -72,7 +72,7 @@ RSpec.describe Game, :type => :model do
       context "when the incorrect guess is made" do
         it "will not make any changes to the clue" do
            guess = game.guesses.create!( [{:letter => "q"}, {:letter => "m"}] )
-          expect(game.guessed_letters).to eq ([guess[0].letter, guess[1].letter])
+          expect(game.clue).to eq [nil, nil, nil, nil, nil]
         end
       end
     end
