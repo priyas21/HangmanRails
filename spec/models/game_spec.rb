@@ -120,5 +120,41 @@ RSpec.describe Game, :type => :model do
         end
       end
     end
+
+    describe "#won" do
+      context "when lives are remaining" do
+        let(:lives) { 6 }
+
+        context "and the word is guessed" do
+          it "returns true" do
+            game.guesses.create!( [{:letter => "i"}, {:letter => "m"},
+              {:letter => "r"},{:letter => "a"}, {:letter => "c"}, {:letter => "s"},
+              {:letter => "l"}, {:letter => "t"}] )
+            expect(game).to be_won
+          end
+        end
+
+        context "and the word is not guessed" do
+          it "returns true" do
+            game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
+              {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"}] )
+            expect(game).not_to be_won
+          end
+        end
+      end
+
+      context "when no lives are remaining" do
+        let(:lives) { 0 }
+
+        context "and the word is not guessed" do
+          it "returns false" do
+            game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
+              {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"},
+              {:letter => "d"}, {:letter => "h"}] )
+            expect(game).not_to be_won
+          end
+        end
+      end
+    end
   end
 end
