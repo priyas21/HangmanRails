@@ -54,4 +54,16 @@ RSpec.describe GamesController, :type => :controller do
     end
   end
 
+  describe "#destroy" do
+    before do
+      post :create, :params => {:game => {:name => "Jiya" } }
+    end
+    it "destroys @game" do
+      expect{ delete :destroy, :params => { :id => assigns(:game).id } }.to change{Game.count}.by(-1)
+    end
+
+    it "redirects_to index template" do
+      expect(subject).to redirect_to(assigns(:game))
+    end
+  end
 end
