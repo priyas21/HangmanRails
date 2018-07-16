@@ -7,6 +7,15 @@ RSpec.describe Game, :type => :model do
   subject(:game) { Game.create!(:name => name,
           :initial_number_of_lives => 8, :word => 'Rails' )}
 
+  def guesses_made(words)
+    array_of_words_guessed = []
+    words.map do |word|
+      h = Hash.new
+      h[:letter] = word
+      array_of_words_guessed << h
+    end
+    array_of_words_guessed
+  end
 
   describe "Associations" do
     it { should have_many(:guesses) }
