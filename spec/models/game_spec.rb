@@ -6,13 +6,9 @@ RSpec.describe Game, :type => :model do
           :initial_number_of_lives => 8, :word => 'Rails' )}
 
   def guesses_made(words)
-    array_of_words_guessed = []
     words.map do |word|
-      h = Hash.new
-      h[:letter] = word
-      array_of_words_guessed << h
+     {:letter => word }
     end
-    array_of_words_guessed
   end
 
   describe "Associations" do
