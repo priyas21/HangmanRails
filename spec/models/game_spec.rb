@@ -81,15 +81,13 @@ RSpec.describe Game, :type => :model do
     describe "#remaining_lives" do
       context "when the correct guess is made" do
         it "will not change the remaining_lives" do
-          game.guesses.create!( [{:letter => "r"}, {:letter => "l"}] )
-          expect(game.remaining_lives).to eq lives
+          expect{ game.guesses.create!([{:letter => "r"}, {:letter => "l"}] )}.to change{game.remaining_lives}.by(0)
         end
       end
 
        context "when the incorrect guess is made" do
         it "will decrement the remaining_lives by 1" do
-          game.guesses.create!( [{:letter => "q"}] )
-          expect(game.remaining_lives).to eq lives - 1
+          expect{game.guesses.create!( [{:letter => "q"}] )}.to change{game.remaining_lives}.by(-1)
         end
       end
     end
