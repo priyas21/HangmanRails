@@ -102,26 +102,21 @@ RSpec.describe Game, :type => :model do
     describe "#in_progress" do
       context "when the game is neither won nor lost" do
         it "returns true" do
-          game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
-            {:letter => "e"},{:letter => "r"}, {:letter => "y"} ] )
+          game.guesses.create!( guesses_made([ "q", "m", "e", "r", "y"]) )
           expect(game).to be_in_progress
         end
       end
 
       context "when the game is won but not lost" do
         it  "returns false" do
-          game.guesses.create!( [{:letter => "a"}, {:letter => "m"},
-            {:letter => "e"},{:letter => "r"}, {:letter => "y"}, {:letter => "l"},
-            {:letter => "i"}, {:letter => "s"}] )
+          game.guesses.create!( guesses_made(["a", "m", "e", "r", "y", "l", "i", "s"] ) )
           expect(game).not_to be_in_progress
         end
       end
 
        context "when the game is lost but not won" do
         it  "returns false" do
-          game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
-            {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"},
-            {:letter => "n"}, {:letter => "t"}] )
+          game.guesses.create!( guesses_made(["q", "m", "g", "f", "c", "x", "n", "t"] ) )
           expect(game).not_to be_in_progress
         end
       end
@@ -133,17 +128,14 @@ RSpec.describe Game, :type => :model do
 
         context "and the word is guessed" do
           it "returns true" do
-            game.guesses.create!( [{:letter => "i"}, {:letter => "m"},
-              {:letter => "r"},{:letter => "a"}, {:letter => "c"}, {:letter => "s"},
-              {:letter => "l"}, {:letter => "t"}] )
+            game.guesses.create!( guesses_made(["i", "m", "r", "a", "c", "s","l", "t"] ) )
             expect(game).to be_won
           end
         end
 
         context "and the word is not guessed" do
           it "returns true" do
-            game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
-              {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"}] )
+            game.guesses.create!( guesses_made(["q", "m", "g", "f", "c", "x"] ) )
             expect(game).not_to be_won
           end
         end
@@ -154,9 +146,7 @@ RSpec.describe Game, :type => :model do
 
         context "and the word is not guessed" do
           it "returns false" do
-            game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
-              {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"},
-              {:letter => "d"}, {:letter => "h"}] )
+            game.guesses.create!( guesses_made([ "q", "m", "g", "f", "c", "x", "d", "h"] ) )
             expect(game).not_to be_won
           end
         end
@@ -178,9 +168,7 @@ RSpec.describe Game, :type => :model do
 
         context "and the word is not guessed" do
           it "returns false" do
-            game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
-              {:letter => "g"},{:letter => "a"}, {:letter => "c"}, {:letter => "x"}
-              ] )
+            game.guesses.create!( guesses_made( ["q", "m", "g", "a",  "c", "x" ] ) )
             expect(game).not_to be_lost
           end
         end
@@ -191,9 +179,7 @@ RSpec.describe Game, :type => :model do
 
         context "and the word is not guessed" do
           it "returns true" do
-            game.guesses.create!( [{:letter => "q"}, {:letter => "m"},
-              {:letter => "g"},{:letter => "f"}, {:letter => "c"}, {:letter => "x"},
-              {:letter => "d"}, {:letter => "h"}] )
+            game.guesses.create!( guesses_made([ "q", "m", "g", "f", "c", "x", "d", "h"] ) )
             expect(game).to be_lost
           end
         end
