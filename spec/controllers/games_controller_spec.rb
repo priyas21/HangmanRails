@@ -55,9 +55,8 @@ RSpec.describe GamesController, :type => :controller do
   end
 
   describe "#destroy" do
-    before do
-      post :create, :params => {:game => {:name => "Jiya" } }
-    end
+    let!(:game) { Game.create!(:name => "Jiya") }
+
     it "destroys @game" do
       expect{ delete :destroy, :params => { :id => game.to_param } }.to change{Game.count}.by(-1)
     end
