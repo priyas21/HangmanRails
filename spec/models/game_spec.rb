@@ -5,7 +5,8 @@ RSpec.describe Game, :type => :model do
   let(:lives) { 8 }
 
   subject(:game) { Game.create!(:name => name,
-          :initial_number_of_lives => lives, :word => 'Rails' )}
+          :initial_number_of_lives => 8, :word => 'Rails' )}
+
 
   describe "Associations" do
     it { should have_many(:guesses) }
