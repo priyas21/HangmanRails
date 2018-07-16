@@ -63,7 +63,8 @@ RSpec.describe GamesController, :type => :controller do
     end
 
     it "redirects_to index template" do
-      expect(subject).to redirect_to(assigns(:game))
+      delete :destroy, :params => {:id => game.to_param }
+      expect(response).to redirect_to :action => :index
     end
   end
 end
