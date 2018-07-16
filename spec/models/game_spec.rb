@@ -2,8 +2,6 @@ require "rails_helper"
 
 RSpec.describe Game, :type => :model do
   let(:name) { 'Lilly' }
-  let(:lives) { 8 }
-
   subject(:game) { Game.create!(:name => name,
           :initial_number_of_lives => 8, :word => 'Rails' )}
 
