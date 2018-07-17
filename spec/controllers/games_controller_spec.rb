@@ -57,11 +57,11 @@ RSpec.describe GamesController, :type => :controller do
     context "when the name is missing" do
       let(:name) { "" }
 
-    it "renders the new template if the game is not successfully saved" do
+      it "renders the new template if the game is not successfully saved" do
         game
-      expect(response).to render_template("new")
+        expect(response).to render_template("new")
+      end
     end
-  end
   end
 
   describe "#destroy" do
