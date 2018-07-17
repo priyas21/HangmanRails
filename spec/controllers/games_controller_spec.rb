@@ -10,8 +10,7 @@ RSpec.describe GamesController, :type => :controller do
   it { is_expected.to route(:get, 'games/60').to(action: :show, id: 60)}
 
   describe "GET index" do
-    it "assigns @game" do
-      game = Game.create!(:name => 'ppp')
+    game = Game.create!(:name => 'ppp')
 
     it "assigns @game" do
       get :index
