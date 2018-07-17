@@ -26,7 +26,6 @@ RSpec.describe GamesController, :type => :controller do
   describe "#new" do
     context "when initialized" do
       it "is a new game" do
-         game = Game.new
          get :new
         expect(assigns(:game)).to be_a_new(Game)
       end
