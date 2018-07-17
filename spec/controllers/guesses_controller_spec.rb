@@ -28,7 +28,7 @@ RSpec.describe GuessesController, :type => :controller do
       end
 
       it "flashes an error message" do
-        expect(flash[:notice]).to eq ["Letter is invalid"]
+        expect(flash[:notice]).to eq "Letter is invalid"
       end
     end
 
