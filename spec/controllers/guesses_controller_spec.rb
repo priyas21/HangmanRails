@@ -19,10 +19,6 @@ RSpec.describe GuessesController, :type => :controller do
         guess
         expect(flash[:success]).to eq "The guess is valid"
       end
-
-      it "redirects to show action" do
-        expect(guess).to redirect_to("/games/#{ assigns(:game).id }")
-      end
     end
 
     context "when guess is invalid" do
@@ -44,12 +40,12 @@ RSpec.describe GuessesController, :type => :controller do
       end
 
       it "flashes an alert message for duplicate guess" do
-        expect(flash[:notice]).to eq ["Letter has already been taken"]
+        expect(flash[:notice]).to eq "Letter has already been taken"
       end
+    end
 
-      it "redirects to show action" do
-        expect(guess).to redirect_to("/games/#{ assigns(:game).id }")
-      end
+    it "redirects to show action" do
+      expect(guess).to redirect_to("/games/#{ assigns(:game).id }")
     end
   end
 end
