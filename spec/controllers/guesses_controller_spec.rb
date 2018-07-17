@@ -16,6 +16,7 @@ RSpec.describe GuessesController, :type => :controller do
       end
 
       it "flashes a success messages" do
+        guess
         expect(flash[:success]).to eq "The guess is valid"
       end
 
