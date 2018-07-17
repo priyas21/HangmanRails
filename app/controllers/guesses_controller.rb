@@ -4,7 +4,7 @@ class GuessesController < ApplicationController
     @guess = @game.guesses.create(:letter => guess_params[:letter].downcase)
 
     if @guess.errors.any?
-      flash[:notice] = @guess.errors.full_messages
+      flash[:notice] = @guess.errors.full_messages.to_sentence
     else
       flash[:success] = "The guess is valid"
     end
