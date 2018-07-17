@@ -53,7 +53,7 @@ RSpec.describe GamesController, :type => :controller do
     end
 
     it "redirects_to show template if the game is successfully saved" do
-      expect(subject).to redirect_to :action => :show, :id => assigns(:game).id
+      expect(game).to redirect_to :action => :show, :id => assigns(:game).id
     end
 
     it "renders the new template if the game is not successfully saved" do
