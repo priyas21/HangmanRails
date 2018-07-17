@@ -40,8 +40,12 @@ RSpec.describe GamesController, :type => :controller do
   end
 
   describe "#create" do
+    let(:name) { "Jiya" }
     let(:game_params) { {:game => {:name => name } } }
     let(:game) { post :create, :params => game_params}
+
+    let(:build_game) { instance_double("BuildGame",:call => new_game )}
+    let(:new_game) { Game.new(:name => name) }
 
     it "creates @game" do
       expect{subject}.to change{Game.count}.by(1)
