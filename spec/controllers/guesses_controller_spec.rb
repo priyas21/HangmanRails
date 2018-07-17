@@ -7,3 +7,22 @@ RSpec.describe GuessesController, :type => :controller do
     let(:letter) { "s" }
     game = Game.create!(:name => name)
     let(:guess) { post :create, :params => {:guess => {:letter => letter}, :game_id => game.to_param  } }
+
+    context "when guess is valid" do
+      before do
+        guess
+      end
+
+      it "create @guess" do
+        expect(game.guesses.count).to eq 1
+        expect(game.guesses.last.letter).to eq letter
+      end
+
+      it "flashes a success messages" do
+        expect(flash[:success]).to eq "The guess is valid"
+      end
+
+      it "redirects to show action" do
+        expect(guess).to redirect_to("/games/#{ assigns(:game).id }")
+      end
+    end
