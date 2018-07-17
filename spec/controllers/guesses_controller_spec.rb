@@ -37,3 +37,21 @@ RSpec.describe GuessesController, :type => :controller do
         expect(flash[:notice]).to eq ["Letter is invalid"]
       end
     end
+
+    context "when guess is duplicate" do
+      let(:letter) { "s" }
+      before do
+        post :create, :params => {:guess => {:letter => letter}, :game_id => game.to_param  }
+        post :create, :params => {:guess => {:letter => letter}, :game_id => game.to_param  }
+      end
+
+      it "flashes an alert message for duplicate guess" do
+        expect(flash[:notice]).to eq ["Letter has already been taken"]
+      end
+
+      it "redirects to show action" do
+        expect(guess).to redirect_to("/games/#{ assigns(:game).id }")
+      end
+    end
+  end
+end
