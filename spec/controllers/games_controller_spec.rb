@@ -49,6 +49,7 @@ RSpec.describe GamesController, :type => :controller do
 
     it "creates @game" do
       allow(BuildGame).to receive(:new).and_return(build_game)
+      expect{game}.to change{Game.count}.by(1)
     end
 
     it "redirects_to show template if the game is successfully saved" do
