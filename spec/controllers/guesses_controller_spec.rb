@@ -9,9 +9,6 @@ RSpec.describe GuessesController, :type => :controller do
     let(:guess) { post :create, :params => {:guess => {:letter => letter}, :game_id => game.to_param  } }
 
     context "when guess is valid" do
-      before do
-        guess
-      end
 
       it "create @guess" do
         expect(game.guesses.count).to eq 1
