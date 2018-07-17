@@ -11,7 +11,7 @@ RSpec.describe GuessesController, :type => :controller do
     context "when guess is valid" do
 
       it "create @guess" do
-        expect(game.guesses.count).to eq 1
+        expect{guess}.to change{Guess.count}.by 1
         expect(game.guesses.last.letter).to eq letter
       end
 
