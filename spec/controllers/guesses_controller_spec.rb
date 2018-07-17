@@ -26,3 +26,14 @@ RSpec.describe GuessesController, :type => :controller do
         expect(guess).to redirect_to("/games/#{ assigns(:game).id }")
       end
     end
+
+    context "when guess is invalid" do
+      let(:letter) { '@' }
+      before do
+        guess
+      end
+
+      it "flashes an error message" do
+        expect(flash[:notice]).to eq ["Letter is invalid"]
+      end
+    end
