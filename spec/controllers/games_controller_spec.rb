@@ -56,10 +56,14 @@ RSpec.describe GamesController, :type => :controller do
       expect(game).to redirect_to :action => :show, :id => assigns(:game).id
     end
 
+    context "when the name is missing" do
+      let(:name) { "" }
+
     it "renders the new template if the game is not successfully saved" do
-      post :create, :params => { :game => {:name => ""}}
+        game
       expect(response).to render_template("new")
     end
+  end
   end
 
   describe "#destroy" do
