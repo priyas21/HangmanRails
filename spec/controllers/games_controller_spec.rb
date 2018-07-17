@@ -12,6 +12,8 @@ RSpec.describe GamesController, :type => :controller do
   describe "GET index" do
     it "assigns @game" do
       game = Game.create!(:name => 'ppp')
+
+    it "assigns @game" do
       get :index
       expect(assigns(:games)).to eq([game])
     end
