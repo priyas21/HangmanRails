@@ -15,7 +15,7 @@ RSpec.describe GamesController, :type => :controller do
 
     it "assigns @game" do
       get :index
-      expect(assigns(:games)).to eq([game])
+      expect(assigns(:games)).to eq Game.all
     end
 
     it "renders the index template" do
