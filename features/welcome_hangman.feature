@@ -1,7 +1,9 @@
 Feature: Welcome to hangman
 
    As a admin i want the user
-   to be greeted when they visit the game
+   to be greeted when they visit the game.
+   User would be able to create a new game and
+   see all the games played
 
    Background: flow till home page
    Given User is on homepage
