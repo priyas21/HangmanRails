@@ -7,6 +7,3 @@ end
 When("User click on show all Games link") do
   click_link('Click here to show all Games')
 end
-Then("User should see {string}") do |content|
-  expect(page).to have_content(content)
-end
