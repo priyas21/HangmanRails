@@ -1,6 +1,8 @@
 Feature: New Game
 
-   Feature Description
+   User can create a new game after
+   filling out his name
+
    Scenario: User Creates a new Game
    Given User is on new game page
    When User fills in "Player" with "Priya"
