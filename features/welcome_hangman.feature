@@ -16,5 +16,5 @@ When User click on the New Custom Game button
 Then User should see 'New Custom Game'
 
 Scenario: List all games
-When User click on show all Games link
+When User clicks the "Click here to show all Games" link
 Then User should see 'Listing all the games'
