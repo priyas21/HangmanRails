@@ -3,7 +3,7 @@ Feature: New Game
    User can create a new game after
    filling out his name
 
-   Scenario: User Creates a new Game
+   Background: flow till new game page
    Given User is on new game page
    When User fills in "Player" with "Priya"
    And User clicks the Create Game button
