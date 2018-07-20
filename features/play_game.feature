@@ -10,7 +10,7 @@ Feature: Play Game
 
   Scenario: Valid guess
   When User enters the "Letter" with "a"
-  Then User gets an alert "The guess is valid"
+  Then User gets an alert "The Guess is valid"
 
   Scenario: Invalid guess
   When User enters the "Letter" with "@"
