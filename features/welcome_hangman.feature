@@ -9,7 +9,7 @@ Feature: Welcome to hangman
    Given User is on homepage
 
 Scenario: Welcome page
-Then User should see 'Welcome to Hangman!'
+Then User should see 'Welcome to Hangman'
 
 Scenario: Create new game
 When User click on the New Custom Game button
