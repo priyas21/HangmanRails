@@ -16,7 +16,7 @@ RSpec.describe GamesHelper, :type => :helper do
       it "returns number of lives remaining" do
         allow(game).to receive(:remaining_lives).and_return(5)
         allow(game).to receive(:in_progress?).and_return(true)
-        expect(helper.game_progress(game)).to eq "You have 5 lives remaining"
+        expect(helper.game_progress(game)).to eq "5 lives remaining"
       end
     end
 
