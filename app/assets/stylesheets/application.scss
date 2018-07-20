@@ -19,8 +19,7 @@
  body {
    font-family: Georgia;
  }
-
-  li {
+ li{
    display: inline;
  }
 
@@ -36,109 +35,109 @@
    font-family: "Raleway";
  }
 
-#logo {
-float: left;
-font-size: 1.7em;
-color: white;
-text-transform: uppercase;
-letter-spacing: -1px;
-font-weight: bold;
-margin-left: 20px;
-}
+  #logo {
+    float: left;
+    font-size: 1.7em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin-left: 20px;
+  }
 
-#logo:hover {
-  color: white;
-  text-decoration: none;
-}
+  #logo:hover {
+    color: white;
+    text-decoration: none;
+  }
 
-#link {
-  float: left;
-  margin-right: 10px;
-  color: white;
-}
-#name {
-  text-transform: capitalize;
-}
+  #link {
+    float: left;
+    margin-right: 10px;
+    color: white;
+  }
+  #name {
+    text-transform: capitalize;
+  }
 
-.label-letter{
+  .label-letter{
 
-  font-size: 15px;
-  font-style: oblique;
-  text-align: left;
-  margin-right: 400px;
-}
+    font-size: 15px;
+    font-style: oblique;
+    text-align: left;
+    margin-right: 400px;
+  }
 
-.form-control {
-  width: 460px;
-  border-radius: 12px;
-}
+  .form-control {
+    width: 460px;
+    border-radius: 12px;
+  }
 
-.submit-btn {
-  margin-top: 20px;
-  width: 460px;
-}
+  .submit-btn {
+    margin-top: 20px;
+    width: 460px;
+  }
 
-.clue {
-  font-size: 30px;
-}
+  .clue {
+    font-size: 30px;
+  }
 
-.game-state {
-  font-size: 22px;
-}
+  .game-state {
+    font-size: 22px;
+  }
 
-.back-link {
-  border-top: dotted;
-  border-color: grey;
-  text-align: left;
-  font-size: 15px;
-  margin-top: 65px;
-  padding: 10px;
-}
+  .back-link {
+    border-top: dotted;
+    border-color: grey;
+    text-align: left;
+    font-size: 15px;
+    margin-top: 65px;
+    padding: 10px;
+  }
 
-.alert{
-  font-size: 20px;
-  width: 650px;
-  margin-top: 30px;
-  border-radius: 15px;
-  text-align: center;
-}
-#guesses-made {
-  font-size: 21px;
-  color: violet;
-  font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
-}
+  .alert{
+    font-size: 20px;
+    width: 650px;
+    margin-top: 30px;
+    border-radius: 15px;
+    text-align: center;
+  }
+  #guesses-made {
+    font-size: 21px;
+    color: violet;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+  }
 
-#games {
-   font-family: "Trebuchet MS",
-   Arial,
-   Helvetica,
-   sans-serif;
-   border-collapse: collapse;
-   width: 100%;
-}
+  #games {
+    font-family: "Trebuchet MS",
+    Arial,
+    Helvetica,
+    sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-#games tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+  #games tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
-#games tr:hover {
-  background-color: #ddd;
-}
+  #games tr:hover {
+    background-color: #ddd;
+  }
 
-#games th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #86c0f3;
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  padding-left: 5px;
-}
-#games td {
-  text-align: left;
-  text-transform: capitalize;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 15px;
-}
+  #games th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #86c0f3;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-left: 5px;
+  }
+  #games td {
+    text-align: left;
+    text-transform: capitalize;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+  }
