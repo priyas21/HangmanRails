@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe GamesHelper, :type => :helper do
   describe "#show_clue" do
     let(:clue) { [nil, 'a', nil, nil, 't'] }
+    let(:formated_clue) { "\u{1f60E} a \u{1f60E} \u{1f60E} t" }
 
     it "returns the fomatted clue" do
-      expect(helper.show_clue(clue)).to eq "* a * * t"
+      expect(helper.show_clue(clue)).to eq formated_clue
     end
   end
 
