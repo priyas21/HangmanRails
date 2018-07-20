@@ -1,15 +1,5 @@
 <%= form_with(model: [ @game, @game.guesses.build ] , local: true ) do |form| %>
-  <p>
-<%= form.label :letter, "Letter", class: "#{'display-none' if !@game.in_progress? }"  %>
-    <%= form.text_field :letter , class: "#{'display-none' if !@game.in_progress? }" %>
-  </p>
-  <p>
-<%= form.submit "Submit", class: "#{'display-none' if !@game.in_progress? }" %>
-  </p>
-
-  <div><%= show_clue(@game.clue) %></div>
-
-  <div> <%= game_progress(@game) %></div>
+      <%= form.submit "Guess!", class: "submit-btn btn btn-primary btn-lg #{'display-none' if !@game.in_progress? }" %>
 
   <% if flash[:success] %>
     <div class ="alert-success"> <%= flash[:success] %> </div>
