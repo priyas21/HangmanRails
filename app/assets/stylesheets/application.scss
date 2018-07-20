@@ -27,6 +27,17 @@
    display:none;
  }
 
+ #welcome-page {
+   background-image: url("hangman_art.jpg");
+   background-repeat: no-repeat;
+   background-size: 1435px 835px;
+ }
+
+ .jumbotron {
+   opacity: 0.8;
+   margin-top: 50px;
+ }
+
  #bs-example-navbar-collapse-1 {
    background-color: #337ab7;
    color: white;
@@ -89,7 +100,7 @@
     border-top: dotted;
     border-color: grey;
     text-align: left;
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 65px;
     padding: 10px;
   }
