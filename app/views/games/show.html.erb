@@ -2,14 +2,11 @@
 <div class="form-group">
   <h1 id="name">Welcome <%= @game.name %></h1>
 
-<h2>The letters you guessed are</h2>
-<%= render @game.guesses %>
-
-
-<%= render 'guesses/form' %>
-
-  <p class="back-link">
-<%= link_to 'Back', games_path %>
+  <h3 class="game-state">Guesses Made:</h3><br>
+  <h4 id="guesses-made">
+    <%= render @game.guesses %>
+  </h4>
+</center>
 
   <%= render 'guesses/form' %>
 
