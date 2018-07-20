@@ -5,7 +5,7 @@ RSpec.describe GamesHelper, :type => :helper do
     let(:clue) { [nil, 'a', nil, nil, 't'] }
 
     it "returns the fomatted clue" do
-      expect(helper.show_clue(clue)).to eq "_ a _ _ t"
+      expect(helper.show_clue(clue)).to eq "* a * * t"
     end
   end
 

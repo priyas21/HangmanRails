@@ -1,7 +1,7 @@
 module GamesHelper
    def show_clue(clue)
     formatted_clue = clue.map do |c|
-      c.nil? ? '_' : c
+      c.nil? ? '*' : c
     end
     formatted_clue.join(" ")
   end
