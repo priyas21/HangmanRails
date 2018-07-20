@@ -1,4 +1,6 @@
-<h2>Welcome <%= @game.name %></h2>
+<center>
+<div class="form-group">
+  <h1 id="name">Welcome <%= @game.name %></h1>
 
 <h2>The letters you guessed are</h2>
 <%= render @game.guesses %>
@@ -14,3 +16,4 @@
   <p class="back-link">
     <%= link_to 'Back', games_path %>
   </p>
+</div>
