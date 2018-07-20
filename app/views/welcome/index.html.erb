@@ -1,3 +1,5 @@
-<center><h1>Welcome to hangman</h1></center>
-<center><%= link_to 'Click here to show all Games', controller: 'games' %></center><br>
-<center><%= link_to '<button type="button" class="btn-primary">New Custom Game</button>'.html_safe, new_game_path%></center>
+<div class="jumbotron">
+  <h1>Welcome to Hangman!</h1>
+  <%= link_to 'Click here to show all Games', controller: 'games' %><br><br>
+  <%= link_to '<button type="button" class="btn btn-lg btn-primary">New Custom Game</button>'.html_safe, new_game_path%>
+</div>
