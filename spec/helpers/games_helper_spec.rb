@@ -33,7 +33,7 @@ RSpec.describe GamesHelper, :type => :helper do
       it "displays the lost message" do
         allow(game).to receive(:in_progress?).and_return(false)
         allow(game).to receive(:won?).and_return(false)
-        expect(helper.game_progress(game)).to eq "You are hanged"
+        expect(helper.game_progress(game)).to eq "Sorry, you've run out of lives!"
       end
     end
   end

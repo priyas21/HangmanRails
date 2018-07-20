@@ -12,7 +12,7 @@ module GamesHelper
     elsif game.won?
       "You have won the game"
     else
-      "You are hanged"
+      "Sorry, you've run out of lives!"
     end
   end
 end
