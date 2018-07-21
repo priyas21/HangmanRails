@@ -25,7 +25,7 @@ RSpec.describe GamesHelper, :type => :helper do
       it "displays the won message" do
         allow(game).to receive(:in_progress?).and_return(false)
         allow(game).to receive(:won?).and_return(true)
-        expect(helper.game_progress(game)).to eq "You have won the game"
+        expect(helper.game_progress(game)).to eq "You have won the game. Yayyyyy \u{1f44f}"
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe GamesHelper, :type => :helper do
       it "displays the lost message" do
         allow(game).to receive(:in_progress?).and_return(false)
         allow(game).to receive(:won?).and_return(false)
-        expect(helper.game_progress(game)).to eq "Sorry, you've run out of lives!"
+        expect(helper.game_progress(game)).to eq "Sorry, you've run out of lives!\u{1f614}"
       end
     end
   end

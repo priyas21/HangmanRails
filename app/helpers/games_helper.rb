@@ -10,9 +10,9 @@ module GamesHelper
     if game.in_progress?
       "#{game.remaining_lives.to_s} lives remaining"
     elsif game.won?
-      "You have won the game"
+      "You have won the game. Yayyyyy \u{1f44f}"
     else
-      "Sorry, you've run out of lives!"
+      "Sorry, you've run out of lives!\u{1f614}"
     end
   end
 end
