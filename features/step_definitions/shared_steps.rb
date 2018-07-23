@@ -1,6 +1,5 @@
 When("User enters the {string} with {string}") do |field, value|
   fill_in(field, :with => value)
-  click_button('Guess!')
 end
 
 When("User clicks the {string} link") do |link|
