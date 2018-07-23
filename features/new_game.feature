@@ -8,7 +8,7 @@ Feature: New Game
 
    Scenario: Creates a new Game
    When User fills in "Player" with "Priya"
-   And User clicks the Create Game button
+   And User clicks the "Create Game" button
    Then User should see "Welcome Priya"
 
    Scenario: Back to index page

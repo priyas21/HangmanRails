@@ -4,7 +4,8 @@ When("User enters the {string} with {string}") do |field, value|
 end
 
 When("User clicks the {string} link") do |link|
-  click_link(link)
+When("User clicks the {string} button") do |btn|
+  click_button(btn)
 end
 
 Then("User should see {string}") do |content|

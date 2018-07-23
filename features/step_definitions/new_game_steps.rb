@@ -4,6 +4,3 @@ end
 When("User fills in {string} with {string}") do |field, value|
   fill_in(field, :with => value)
 end
-And("User clicks the Create Game button") do
-  click_button('Create Game')
-end

@@ -12,7 +12,7 @@ Scenario: Welcome page
 Then User should see 'Welcome to Hangman'
 
 Scenario: Create new game
-When User click on the New Custom Game button
+When User clicks the 'New Custom Game' button
 Then User should see 'New Custom Game'
 
 Scenario: List all games
