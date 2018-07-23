@@ -3,6 +3,9 @@ When("User enters the {string} with {string}") do |field, value|
 end
 
 When("User clicks the {string} link") do |link|
+  all(:link, link).each(&:click)
+end
+
 When("User clicks the {string} button") do |btn|
   click_button(btn)
 end
