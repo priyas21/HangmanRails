@@ -6,11 +6,13 @@ Feature: Play Game
 
   Scenario: Valid guess
   Given Game is existing
+  When User fills in the "Letter" with "a"
   And User clicks the "Guess!" button
   Then Guesses made should have "a"
 
   Scenario: Invalid guess
   Given Game is existing
+  When User fills in the "Letter" with "@"
   And User clicks the "Guess!" button
   Then User gets an alert "Letter is invalid"
 

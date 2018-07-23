@@ -1,4 +1,4 @@
-When("User enters the {string} with {string}") do |field, value|
+When("User fills in the {string} with {string}") do |field, value|
   fill_in(field, :with => value)
 end
 
