@@ -13,6 +13,7 @@ Feature: Show Games
    When User clicks the "Destroy" link
    Then User should see "Game was successfully deleted"
 
-   Scenario: New Game
-   When User clicks the "New Game" link
-   Then User should see "New Custom Game"
+   Scenario: Show the selected game
+   Given User is on index page
+   When User clicks the "Show" link
+   Then User should see "Guesses Made:"
