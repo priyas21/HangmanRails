@@ -14,11 +14,6 @@ RSpec.describe GuessesController, :type => :controller do
         expect{guess}.to change{Guess.count}.by 1
         expect(game.guesses.last.letter).to eq letter
       end
-
-      it "flashes a success messages" do
-        guess
-        expect(flash[:success]).to eq "The Guess is valid"
-      end
     end
 
     context "when guess is invalid" do

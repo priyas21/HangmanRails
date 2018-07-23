@@ -5,8 +5,6 @@ class GuessesController < ApplicationController
 
     if @guess.errors.any?
       flash[:notice] = @guess.errors.full_messages.to_sentence
-    else
-      flash[:success] = "The Guess is valid"
     end
     redirect_to game_path(@game)
   end
