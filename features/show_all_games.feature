@@ -11,7 +11,7 @@ Feature: Show Games
 
    Scenario: Delete the game
    When User clicks the "Destroy" link
-   Then User should see "Are you sure?"
+   Then User should see "Game was successfully deleted"
 
    Scenario: New Game
    When User clicks the "New Game" link
