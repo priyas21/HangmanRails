@@ -6,9 +6,12 @@
       <%= form.submit "Guess!", class: "submit-btn btn btn-primary btn-lg #{'hide' if !@game.in_progress? }" %>
   </div>
   <div class="clue">
-    <%= show_clue(@game.clue) if @game.in_progress? %>
-    <p>Secret Word :</p>
-      <%= show_clue(@game.word.chars) if !@game.in_progress? %>
+    <p> Secret Word: </p>
+    <% if @game.in_progress? %>
+      <%= show_clue(@game.clue) %>
+    <% else %>
+      <%= show_clue(@game.word.chars) %>
+    <% end %>
   </div><br><br>
   <div class="game-state" >
     <%= game_progress(@game) %>
