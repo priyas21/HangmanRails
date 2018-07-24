@@ -1,4 +1,4 @@
-Given("Game is existing") do
+Given("Game has been created") do
   visit new_game_path
   fill_in("Player", :with => "Priya")
   click_button('Create Game')
