@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= form_with(model: [ @game, @game.guesses.build ] , local: true ) do |form| %>
       <%= form.label :letter, "Letter", class: "label-letter #{'hide' if !@game.in_progress? }" %>
-      <%= form.text_field :letter ,class: "form-control #{ 'hide' if !@game.in_progress? }" %>
+      <%= form.text_field :letter ,class: "form-control #{ 'hide' if !@game.in_progress? }", autofocus: true %>
       <%= form.submit "Guess!", class: "submit-btn btn btn-primary btn-lg #{'hide' if !@game.in_progress? }" %>
   </div>
   <div class="clue">
