@@ -45,7 +45,7 @@
    margin-top: 50px;
  }
 
- #bs-example-navbar-collapse-1 {
+ .container-fluid {
    background-color: #337ab7;
    color: white;
  }
@@ -88,6 +88,7 @@
   .form-control {
     width: 460px;
     border-radius: 12px;
+    
   }
 
   .submit-btn {
