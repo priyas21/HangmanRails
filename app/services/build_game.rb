@@ -9,7 +9,7 @@ class BuildGame
     game = Game.new(game_params)
     game.word = GenerateRandomWord.new.call
     game.initial_number_of_lives = 8
-    
+
     game
   end
 end
