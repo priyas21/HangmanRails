@@ -7,11 +7,7 @@
   </div>
   <div class="clue">
     <p> Secret Word: </p>
-    <% if @game.in_progress? %>
-      <%= show_clue(@game.clue) %>
-    <% else %>
-      <%= show_clue(@game.word.chars) %>
-    <% end %>
+    <%= show_clue( @game.in_progress? ? @game.clue : @game.word.chars) %>
   </div><br><br>
   <div class="game-state" >
     <%= game_progress(@game) %>
