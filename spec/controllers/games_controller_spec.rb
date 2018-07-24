@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, :type => :controller do
+
+    let!(:game) { Game.create!(:name => name, :word => word, :initial_number_of_lives => initial_number_of_lives) }
+    let(:name) { "Jiya" }
+    let(:word) { "Hillarious" }
+    let(:initial_number_of_lives) { 8 }
+
   it { is_expected.to route(:get, '/games').to(action: :index) }
 
   it { is_expected.to route(:post, '/games').to(action: :create) }
@@ -9,8 +15,8 @@ RSpec.describe GamesController, :type => :controller do
 
   it { is_expected.to route(:get, 'games/60').to(action: :show, id: 60)}
 
+
   describe "GET index" do
-    game = Game.create!(:name => 'ppp')
 
     it "assigns @game" do
       get :index
