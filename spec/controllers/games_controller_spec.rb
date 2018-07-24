@@ -44,34 +44,33 @@ RSpec.describe GamesController, :type => :controller do
   end
 
   describe "#create" do
-    let(:name) { "Jiya" }
-    let(:game_params) { {:game => {:name => name } } }
-    let(:game) { post :create, :params => game_params}
+    let(:new_name) {"jiya"}
+    let(:game_params) { {:game => {:name => new_name , :word => word, :initial_number_of_lives => initial_number_of_lives} } }
+    let(:create_game) { post :create, :params => game_params}
 
     let(:build_game) { instance_double("BuildGame",:call => new_game )}
-    let(:new_game) { Game.new(:name => name) }
+    let(:new_game) { Game.new(:name => name, :word => word, :initial_number_of_lives => initial_number_of_lives) }
 
     it "creates @game" do
       allow(BuildGame).to receive(:new).and_return(build_game)
-      expect{game}.to change{Game.count}.by(1)
+      expect{create_game}.to change{Game.count}.by(1)
     end
 
     it "redirects_to show template if the game is successfully saved" do
-      expect(game).to redirect_to :action => :show, :id => assigns(:game).id
+      expect(create_game).to redirect_to :action => :show, :id => assigns(:game).id
     end
 
     context "when the name is missing" do
-      let(:name) { "" }
+      let(:new_name) { "" }
 
       it "renders the new template if the game is not successfully saved" do
-        game
+        create_game
         expect(response).to render_template("new")
       end
     end
   end
 
   describe "#destroy" do
-    let!(:game) { Game.create!(:name => "Jiya") }
     let(:delete_game) { delete :destroy, :params => { :id => game.to_param } }
 
     it "destroys @game" do
