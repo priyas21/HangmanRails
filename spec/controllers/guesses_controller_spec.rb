@@ -4,8 +4,11 @@ RSpec.describe GuessesController, :type => :controller do
 
   describe "#create" do
     let(:name) { "Lilly" }
+    let(:word) { "Rails" }
+    let(:initial_number_of_lives) { 8 }
+
     let(:letter) { "s" }
-    let(:game) { Game.create!(:name => name) }
+    let!(:game) { Game.create!(:name => name, :word => word, :initial_number_of_lives => initial_number_of_lives) }
     let(:guess) { post :create, :params => {:guess => {:letter => letter}, :game_id => game.to_param  } }
 
     context "when guess is valid" do
