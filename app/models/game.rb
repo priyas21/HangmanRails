@@ -1,6 +1,8 @@
 class Game < ApplicationRecord
   has_many :guesses, dependent: :destroy
   validates :name, presence: true
+  validates :word, presence: true
+  validates :initial_number_of_lives, presence: true
 
   def guessed_letters
    guesses.pluck(:letter).compact
